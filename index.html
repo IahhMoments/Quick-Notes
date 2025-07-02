@@ -6,6 +6,7 @@
     <title>Quick Notes</title>
   </head>
   <body>
+    <!-- Header -->
     <header>
       <h1>Quick Notes</h1>
       <div>
@@ -16,8 +17,10 @@
       </div>
     </header>
 
+    <!-- Main -->
     <main id="notesContainer" class="notes-grid"></main>
 
+    <!-- Dialog -->
     <dialog id="noteDialog">
       <div class="dialog-content">
         <header class="dialog-header">
@@ -26,6 +29,7 @@
           <button class="close-btn" onclick="closeNoteDialog()">x</button>
         </header>
 
+        <!-- Form Info -->
         <form id="noteForm">
           <div class="form-group">
             <label for="noteTitle" class="form-label">Title</label>
@@ -46,6 +50,17 @@
               placeholder="Write your note here..."
               required
             ></textarea>
+          </div>
+
+          <div class="dialog-actions">
+            <button
+              type="button"
+              class="cancel-btn"
+              onclick="closeNoteDialog()"
+            >
+              Cancel
+            </button>
+            <button type="submit" class="save-btn">Save Note</button>
           </div>
         </form>
       </div>

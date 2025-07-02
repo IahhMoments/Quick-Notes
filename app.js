@@ -1,5 +1,10 @@
 let notes = [];
 
+function loadNotes() {
+  const savedNotes = localStorage.getItem("quickNotes");
+  return savedNotes ? JSON.parse(savedNotes) : [];
+}
+
 function saveNote(event) {
   event.preventDefault();
 
@@ -23,6 +28,32 @@ function saveNotes() {
   localStorage.setItem("quickNotes", JSON.stringify(notes));
 }
 
+function renderNotes() {
+  const notesContainer = document.getElementById("notesContainer");
+  if (notes.length === 0) {
+    notesContainer.innerHTML = `
+        <div class="empty-state">
+        <h2>No notes yet</h2>
+        <p>Create your first note to get started!</p>
+        <button class="add-note-btn" onclick="openNoteDialog()">+ Add Your First Note</button>
+        </div>
+        `;
+
+    return;
+  }
+
+  notesContainer.innerHTML = notes
+    .map(
+      (note) => `
+    <div class="note-card">
+    <h3 class="note-title">${note.title}</h3>
+    <p class="note-content">${note.content}</p>
+    </div>
+    `
+    )
+    .join("");
+}
+
 function openNoteDialog() {
   const dialog = document.getElementById("noteDialog");
   const titleInput = document.getElementById("noteTitle");
@@ -37,6 +68,9 @@ function closeNoteDialog() {
 }
 
 document.addEventListener("DOMContentLoaded", function () {
+  notes = loadNotes();
+  renderNotes();
+
   document.getElementById("noteForm").addEventListener("submit", saveNote);
 
   document

@@ -25,6 +25,29 @@
 
           <button class="close-btn" onclick="closeNoteDialog()">x</button>
         </header>
+
+        <form id="noteForm">
+          <div class="form-group">
+            <label for="noteTitle" class="form-label">Title</label>
+            <input
+              type="text"
+              class="form-input"
+              id="noteTitle"
+              placeholder="Enter note title..."
+              required
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="noteContent" class="form-label">Content</label>
+            <textarea
+              class="form-textarea"
+              id="noteContent"
+              placeholder="Write your note here..."
+              required
+            ></textarea>
+          </div>
+        </form>
       </div>
     </dialog>
   </body>

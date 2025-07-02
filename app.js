@@ -18,6 +18,7 @@ function saveNote(event) {
   });
 
   saveNotes();
+  renderNotes();
 }
 
 const generateId = () => {

@@ -21,6 +21,12 @@ function saveNote(event) {
   renderNotes();
 }
 
+function deleteNote(noteId) {
+  notes = notes.filter((note) => note.id != noteId);
+  saveNotes();
+  renderNotes();
+}
+
 const generateId = () => {
   return Date.now().toString();
 };
@@ -47,18 +53,17 @@ function renderNotes() {
     .map(
       (note) => `
     <div class="note-card">
-    <h3 class="note-title">${note.title}</h3>
-    <p class="note-content">${note.content}</p>
-
-    <div class="note-actions">
-    <button class="edit-btn" onclick="openNoteDialog()" title="Edit Note">
-    <i class="material-symbols-outlined">edit</i>
-    </button>
-    <button class="delete-btn" onclick="deleteNote()" title="Delete Note">
-    <i class="material-symbols-outlined">cancel</i>
-    </button>
-    </div>
-    </div>
+        <h3 class="note-title">${note.title}</h3>
+        <p class="note-content">${note.content}</p>
+        <div class="note-actions">
+          <button class="edit-btn" onclick="openNoteDialog('${note.id}')" title="Edit Note">
+            <i class="material-symbols-outlined">edit</i>
+          </button>
+          <button class="delete-btn" onclick="deleteNote('${note.id}')" title="Delete Note">
+            <i class="material-symbols-outlined">cancel</i>
+          </button>
+        </div>
+      </div>
     `
     )
     .join("");

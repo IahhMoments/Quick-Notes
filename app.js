@@ -77,9 +77,6 @@ function renderNotes() {
         <h3 class="note-title">${note.title}</h3>
         <p class="note-content">${note.content}</p>
         <div class="note-actions">
-          <button class="edit-btn" onclick="openNoteDialog('${note.id}')" title="Edit Note">
-            <i class="material-symbols-outlined">edit</i>
-          </button>
           <button class="delete-btn" onclick="deleteNote('${note.id}')" title="Delete Note">
             <i class="material-symbols-outlined">cancel</i>
           </button>
@@ -88,6 +85,14 @@ function renderNotes() {
     `
     )
     .join("");
+
+  document.querySelectorAll(".note-card").forEach((card) => {
+    card.addEventListener("click", function (e) {
+      if (e.target.closest(".delete-btn")) return;
+      const noteId = this.getAttribute("data-note-id");
+      openNoteDialog(noteId);
+    });
+  });
 }
 
 function openNoteDialog(noteId = null) {
@@ -124,7 +129,15 @@ function toggleTheme() {
   document.getElementById("themeToggleBtn").textContent = isDark ? "🌞" : "🌙";
 }
 
+function applyStoredTheme() {
+  if (localStorage.getItem("theme") === "dark") {
+    document.body.classList.add("dark-theme");
+    document.getElementById("themeToggleBtn").textContent = "🌞";
+  }
+}
+
 document.addEventListener("DOMContentLoaded", function () {
+  applyStoredTheme();
   notes = loadNotes();
   renderNotes();
 

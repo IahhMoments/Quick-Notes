@@ -124,15 +124,15 @@ header {
   right: 1rem;
   display: flex;
   gap: 0.5rem;
-  opacity: 0;
-  visibility: hidden;
+  /* opacity: 0;
+  visibility: hidden; */
   transition: all 0.2s ease;
 }
 
-.note-card:hover .note-actions {
+/* .note-card:hover .note-actions {
   opacity: 1;
   visibility: visible;
-}
+} */
 
 .edit-btn,
 .delete-btn {
@@ -152,7 +152,7 @@ header {
 }
 
 .edit-btn:hover {
-  background: var(--base-transparent-100);
+  background: var(--brand-color);
   transform: scale(1.05);
 }
 

@@ -49,6 +49,15 @@ function renderNotes() {
     <div class="note-card">
     <h3 class="note-title">${note.title}</h3>
     <p class="note-content">${note.content}</p>
+
+    <div class="note-actions">
+    <button class="edit-btn" onclick="openNoteDialog()" title="Edit Note">
+    <i class="material-symbols-outlined">edit</i>
+    </button>
+    <button class="delete-btn" onclick="deleteNote()" title="Delete Note">
+    <i class="material-symbols-outlined">cancel</i>
+    </button>
+    </div>
     </div>
     `
     )

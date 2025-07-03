@@ -119,7 +119,9 @@ function closeNoteDialog() {
 }
 
 function toggleTheme() {
-  document.body.classList.toggle("dark-theme");
+  const isDark = document.body.classList.toggle("dark-theme");
+  localStorage.setItem("theme", isDark ? "dark" : "light");
+  document.getElementById("themeToggleBtn").textContent = isDark ? "🌞" : "🌙";
 }
 
 document.addEventListener("DOMContentLoaded", function () {

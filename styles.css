@@ -290,3 +290,108 @@ dialog::backdrop {
   font-size: 1rem;
   margin-bottom: 2rem;
 }
+
+/* Mobile */
+@media (max-width: 600px) {
+  body {
+    margin: 0.5rem;
+    font-size: 1rem;
+  }
+
+  header {
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  .notes-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .note-card {
+    padding: 1rem;
+    font-size: 1rem;
+  }
+
+  .note-title {
+    font-size: 1.1rem;
+  }
+
+  .note-content {
+    font-size: 1rem;
+  }
+
+  .add-note-btn,
+  .theme-toggle-btn {
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    min-width: 44px;
+    min-height: 44px;
+  }
+
+  .note-actions {
+    top: 0.5rem;
+    right: 0.5rem;
+    gap: 0.25rem;
+  }
+
+  .edit-btn,
+  .delete-btn {
+    width: 28px;
+    height: 28px;
+    font-size: 1.1rem;
+  }
+
+  dialog {
+    max-width: 98vw;
+    width: 98vw;
+    border-radius: 0.5rem;
+    padding: 0;
+  }
+
+  .dialog-header {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .dialog-content {
+    padding: 1rem;
+  }
+
+  .dialog-title {
+    font-size: 1.2rem;
+  }
+
+  .form-group {
+    margin-bottom: 1rem;
+  }
+
+  .form-input,
+  .form-textarea {
+    padding: 0.5rem;
+    font-size: 1rem;
+  }
+
+  .form-textarea {
+    min-height: 80px;
+  }
+
+  .dialog-actions {
+    gap: 0.5rem;
+  }
+
+  .cancel-btn,
+  .save-btn {
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+  }
+
+  .empty-state {
+    padding: 2rem 0.5rem;
+  }
+}

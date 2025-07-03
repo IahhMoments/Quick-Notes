@@ -28,13 +28,22 @@ function saveNote(event) {
     });
   }
 
+  console.log(`New Note Added: ${title}`);
+
   closeNoteDialog();
   saveNotes();
   renderNotes();
 }
 
 function deleteNote(noteId) {
+  const noteToDelete = notes.find((note) => note.id == noteId);
   notes = notes.filter((note) => note.id != noteId);
+
+  if (noteToDelete) {
+    console.log(`Note Deleted: ${noteToDelete.title}`);
+  } else {
+    console.log(`Note Deleted: (unknown title)`);
+  }
   saveNotes();
   renderNotes();
 }

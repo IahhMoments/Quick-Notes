@@ -116,7 +116,7 @@ function openNoteDialog(noteId = null) {
   }
 
   dialog.showModal();
-  titleInput.focus();
+  // titleInput.focus();
 }
 
 function closeNoteDialog() {

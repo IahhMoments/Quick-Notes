@@ -118,11 +118,18 @@ function closeNoteDialog() {
   document.getElementById("noteDialog").close();
 }
 
+function toggleTheme() {
+  document.body.classList.toggle("dark-theme");
+}
+
 document.addEventListener("DOMContentLoaded", function () {
   notes = loadNotes();
   renderNotes();
 
   document.getElementById("noteForm").addEventListener("submit", saveNote);
+  document
+    .getElementById("themeToggleBtn")
+    .addEventListener("click", toggleTheme);
 
   document
     .getElementById("noteDialog")

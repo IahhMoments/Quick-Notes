@@ -73,7 +73,7 @@ function renderNotes() {
   notesContainer.innerHTML = notes
     .map(
       (note) => `
-    <div class="note-card">
+    <div class="note-card" data-note-id=${note.id}>
         <h3 class="note-title">${note.title}</h3>
         <p class="note-content">${note.content}</p>
         <div class="note-actions">
